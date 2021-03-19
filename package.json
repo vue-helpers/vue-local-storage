@@ -24,5 +24,6 @@
   },
   "scripts": {
     "build": "babel src/ -d dist"
-  }
+  },
+  "publishConfig": {"access": "public"}
 }
