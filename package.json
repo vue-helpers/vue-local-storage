@@ -1,6 +1,6 @@
 {
   "name": "@vue-helpers/vue-local-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Vue.js plugin for easy work with localStorage",
   "author": "Roman Beniukh",
   "license": "MIT",

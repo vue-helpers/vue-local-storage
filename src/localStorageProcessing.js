@@ -6,10 +6,10 @@ export default class LocalStorageProcessing {
   }
 
   #listen () {
-    window.addEventListener('storage', this.#change);
+    window.addEventListener('storage', (e) => this.#change(e, this));
   }
 
-  #change (e) {
+  #change (e, ctx) {
     const formatType = {
       '0': () => null,
       'd': (v) => new Date(v),
@@ -17,7 +17,7 @@ export default class LocalStorageProcessing {
       'b': (v) => 'true' === v,
       'f': (v) => Function('return ' + v)()
     };
-    const listeners = this.listeners[e.key];
+    const listeners = ctx.listeners[e.key];
 
     const fire = (listener) => {
       const newValue = e.newValue && /^:[bdfn0]:/.test(e.newValue) ? formatType[e.newValue.slice(1, 2)](e.newValue.slice(3)) : JSON.parse(e.newValue);
