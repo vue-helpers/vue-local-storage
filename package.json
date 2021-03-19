@@ -1,11 +1,12 @@
 {
-  "name": "@vue-helpers/local-storage",
+  "name": "@vue-helpers/vue-local-storage",
   "version": "1.0.0",
   "description": "Simple Vue.js plugin for easy work with localStorage",
   "author": "Roman Beniukh",
   "license": "MIT",
-  "repository": "vue-helpers/local-storage",
+  "repository": "vue-helpers/vue-local-storage",
   "keywords": [
+    "vue-local-storage",
     "vue",
     "vuejs",
     "localStorage",
@@ -14,16 +15,18 @@
   ],
   "main": "dist/index.js",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "@babel/cli": "^7.13.10",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
     "vue": "^2.1.6",
     "webpack": "^3.5.5"
   },
   "scripts": {
     "build": "babel src/ -d dist"
   },
-  "publishConfig": {"access": "public"}
+  "publishConfig": {
+    "access": "public"
+  }
 }
