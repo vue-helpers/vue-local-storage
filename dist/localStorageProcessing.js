@@ -126,10 +126,14 @@ var LocalStorageProcessing = /*#__PURE__*/function () {
 exports.default = LocalStorageProcessing;
 
 function _listen2() {
-  window.addEventListener('storage', _classPrivateMethodGet(this, _change, _change2));
+  var _this = this;
+
+  window.addEventListener('storage', function (e) {
+    return _classPrivateMethodGet(_this, _change, _change2).call(_this, e, _this);
+  });
 }
 
-function _change2(e) {
+function _change2(e, ctx) {
   var formatType = {
     '0': function _() {
       return null;
@@ -147,7 +151,7 @@ function _change2(e) {
       return Function('return ' + v)();
     }
   };
-  var listeners = this.listeners[e.key];
+  var listeners = ctx.listeners[e.key];
 
   var fire = function fire(listener) {
     var newValue = e.newValue && /^:[bdfn0]:/.test(e.newValue) ? formatType[e.newValue.slice(1, 2)](e.newValue.slice(3)) : JSON.parse(e.newValue);
